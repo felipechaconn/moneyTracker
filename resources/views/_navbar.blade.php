@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md shadow-sm fixed-top">
     <div class="container">
         @guest
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand  text-white" href="{{ url('/') }}">
                 Track Your Money
             </a>
         @else
@@ -24,10 +24,10 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link  text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
-                        <li class="nav-item">
+                        <li class="nav-item  text-white">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
