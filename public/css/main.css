@@ -28,7 +28,7 @@ html {
 
 body {
     margin: 0;
-    background-color: #393e46;
+    background-color: #2D2B38;
 }
 
 
@@ -265,6 +265,23 @@ button:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
     outline: 1px dotted ButtonText;
+}
+
+.dropdown-item:hover {
+    color: white;
+    background-color: #3A3846;
+}
+
+.dropdown-item:focus {
+    background-color: #3A3846;
+}
+
+.navbar {
+    background-color: #3A3846;
+}
+
+.dropdown-menu {
+    background-color: #2D2B38;
 }
 
 

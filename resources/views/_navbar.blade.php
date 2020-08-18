@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm fixed-top">
+<nav class="navbar navbar-expand-md shadow-sm fixed-top">
     <div class="container">
         @guest
             <a class="navbar-brand" href="{{ url('/') }}">
                 Track Your Money
             </a>
         @else
-        <a class="navbar-brand" href="{{ url()->route('home') }}">
+        <a class="navbar-brand text-white" href="{{ url()->route('home') }}">
             Track Your Money
         </a>
         @endguest
@@ -33,12 +33,12 @@
                     @endif
                 @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-item text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item text-white" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
