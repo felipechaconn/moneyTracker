@@ -1,0 +1,24 @@
+body {
+    background-color: #2D2B38;
+}
+
+.dropdown-item:hover {
+    color: white;
+    background-color: #3A3846;
+}
+
+.dropdown-item:focus {
+    background-color: #3A3846;
+}
+
+.navbar {
+    background-color: #3A3846;
+}
+
+.dropdown-menu {
+    background-color: #2D2B38;
+}
+
+.card {
+    background-color: #3A3846;
+}

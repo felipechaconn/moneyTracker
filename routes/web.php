@@ -17,11 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('home');
+});
+
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
  
 Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
 Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
