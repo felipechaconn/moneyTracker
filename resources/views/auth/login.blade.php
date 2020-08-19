@@ -49,27 +49,16 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-8 offset-md-4">
-                                        <a class="btn btn-primary" href="{{ route('social.auth', 'facebook') }}">
-                                            Facebook
-                                        </a>
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Login') }}
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-8 offset-md-4">
+                                <div class="form-group form-inline row mb-0">
+                                    <div class="offset-md-4 mr-3">
                                         <button type="submit" class="btn btn-primary rounded-full">
                                             {{ __('Login') }}
                                         </button>
-
-                                        @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                {{ __('Forgot Your Password?') }}
-                                            </a>
-                                        @endif
+                                    </div>
+                                    <div>
+                                        <a class="btn btn-primary rounded-full mr-3" href="{{ route('social.auth', 'facebook') }}">
+                                            Facebook
+                                        </a>
                                     </div>
                                 </div>
                         </form>
