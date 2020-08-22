@@ -12,7 +12,7 @@ class CurrencyController extends Controller
 {
     public function __construct()
     {
-        $currencies = Currency::checkCurrency();
+       
         $this->middleware('auth');
 
     }
@@ -33,6 +33,7 @@ class CurrencyController extends Controller
      */
     public function create(Request $request)
     {
+        $currencies = Currency::checkCurrency();
         //Agregar la moneda a mysql
       $usuario_id = Auth::user()->id;
       $simbolo = Input::get('symbol');
