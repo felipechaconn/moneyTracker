@@ -1,6 +1,6 @@
 <ul>
     <li>
-        <a href="" class="dropdown-item btn btn-link text-white text-xl text-bold mb-5 flex items-center rounded-full">
+        <a href="/currency" class="dropdown-item btn btn-link text-white text-xl text-bold mb-5 flex items-center rounded-full">
             <img src="/images/coins.svg" alt="currency" width="50" height="50" class="mr-2">
             <p>Currency</p>
         </a>

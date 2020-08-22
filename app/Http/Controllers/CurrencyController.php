@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
-use App\models\Currency;
+use App\Currency;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -23,7 +23,9 @@ class CurrencyController extends Controller
      */
     public function index()
     {
-        //
+        return view('currency.index', [
+            'currencies' => auth()->user()->currencies()
+        ]);
     }
 
     /**
