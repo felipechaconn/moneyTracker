@@ -42,7 +42,15 @@ class User extends Authenticatable
         return Currency::get()->where('user_id', $this->id);
     }
 
+    public function allAccounts(){
+        return Account::get()->where('user_id', $this->id);
+    }
+
     public function currencies(){
         return $this->hasMany(Currency::class);
+    }
+
+    public function accounts(){
+        return $this->hasMany(Account::class);
     }
 }
