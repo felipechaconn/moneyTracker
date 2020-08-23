@@ -52,7 +52,7 @@ class AccountController extends Controller
         $icon = $request->file('icon');
         $filename = time() . '.' . $icon->getClientOriginalExtension();
         Image::make($icon)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
-        $usuario_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
         $currency_id = $request->currency_id;
         $name = $request->name;
         $description = $request->description;
@@ -103,7 +103,8 @@ class AccountController extends Controller
      */
     public function update(Request $request, Account $account)
     {
-        //
+        $account = Account::find($account->id)->update($request->all());
+        return redirect('/accounts');
     }
 
     /**
@@ -115,7 +116,7 @@ class AccountController extends Controller
     public function destroy(Account $account)
     {
         //
-        $account = Currency::find($account->id);
+        $account = Account::find($account->id);
         $account->delete();
         return Redirect::back();
     }
