@@ -30,8 +30,8 @@ Route::middleware('auth')->group(function () {
     
     Route::delete('currencies/{currency:id}/delete', 'CurrencyController@destroy');
 
-    Route::get('/accounts', 'AccountsController@index');
-    Route::get('/accounts/create', 'AccountsController@create');
+    Route::get('/accounts', 'AccountController@index');
+    Route::get('/accounts/create', 'AccountController@create');
 });
 
 Auth::routes();

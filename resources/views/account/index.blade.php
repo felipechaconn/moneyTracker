@@ -16,11 +16,11 @@
                                 Current balance: {{ $account->current_balance }}
                             </p>
                             <div class="flex items-center">
-                                <a href="/currencies/{{ $account->id }}/edit" class="btn btn-success rounded-full mt-3 mr-2 mx-8">Edit</a>
+                                <a href="/currencies/{{ $account->currency_id }}/edit" class="btn btn-success rounded-full mt-3 mr-2 mx-8">Edit</a>
 
                                 <form
                                     method="POST" 
-                                    action="/currencies/{{ $account->id }}/delete"
+                                    action="/currencies/{{ $account->currency_id }}/delete"
                                 >
                                 @csrf
                                 @method('DELETE')
