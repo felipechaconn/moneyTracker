@@ -1,6 +1,6 @@
 <x-app>
     <div class="relative mb-3">
-        <a href="" class="btn btn-success absolute top-0 right-0 rounded-full">Add currency</a>
+        <a href="/currencies/create" class="btn btn-success absolute top-0 right-0 rounded-full">Add currency</a>
     </div>
 
     <div>
@@ -10,7 +10,7 @@
             <div class="card rounded-lg mr-2 mb-2" style="width: 9rem">
                 <div class="card-body flex items-center">
                     <div class="mr-2 flex-shrink-0">
-                        <img src="{{ $currency->symbol }}" alt="symbol" width="42" height="42" class="mr-2">
+                        <p>{{ $currency->symbol }}</p>
                     </div>
 
                     <div>

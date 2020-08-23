@@ -35,21 +35,7 @@ class CurrencyController extends Controller
      */
     public function create(Request $request)
     {
-        $currencies = Currency::checkCurrency();
-        //Agregar la moneda a mysql
-      $usuario_id = Auth::user()->id;
-      $simbolo = Input::get('symbol');
-      $descripcion = Input::get('description');
-      $tasa = Input::get('rate');
-      //Creamos el array de las monedas
-      $currencies = array('user_id' => $user_id, 
-        'symbol' => $simbolo,
-        'description' => $descripcion,
-        'rate' => $tasa);
-       
-      $id = DB::table('currencies')->insertGetId($currencies);
-        
-        return Redirect::back();
+        return view('currency.create');
     }
 
     /**
@@ -60,7 +46,23 @@ class CurrencyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $currencies = Currency::checkCurrency();
+        //Agregar la moneda a mysql
+      $usuario_id = Auth::user()->id;
+      $name = Input::get('name');
+      $simbolo = Input::get('symbol');
+      $descripcion = Input::get('description');
+      $tasa = Input::get('rate');
+      //Creamos el array de las monedas
+      $currencies = array('user_id' => $usuario_id, 
+        'name' => $name,  
+        'symbol' => $simbolo,
+        'description' => $descripcion,
+        'rate' => $tasa);
+       
+      $id = DB::table('currencies')->insertGetId($currencies);
+        
+        return Redirect::back();
     }
 
     /**

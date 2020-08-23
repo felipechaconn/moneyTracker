@@ -19,7 +19,10 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('home');
-    Route::get('/currency', 'CurrencyController@index');
+    
+    Route::get('/currencies', 'CurrencyController@index');   
+    Route::get('/currencies/create', 'CurrencyController@create');
+    Route::post('/currencies', 'CurrencyController@store');
 });
 
 Auth::routes();
