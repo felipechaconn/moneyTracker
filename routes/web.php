@@ -29,6 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/currencies/{currency:id}', 'CurrencyController@update');
     
     Route::delete('currencies/{currency:id}/delete', 'CurrencyController@destroy');
+
+    Route::get('/accounts', 'AccountsController@index');
+    Route::get('/accounts/create', 'AccountsController@create');
 });
 
 Auth::routes();
