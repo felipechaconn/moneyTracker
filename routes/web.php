@@ -39,6 +39,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/accounts/{account:id}', 'AccountController@update');
     
     Route::delete('accounts/{account:id}/delete', 'AccountController@destroy');
+
+    Route::get('/categories', 'CategoriesController@index');
+
+    Route::get('/categories/create', 'CategoriesController@create');
+    Route::post('/categories', 'CategoriesController@store');
+
+    Route::get('categories/{category:id}/edit', 'CategoriesController@edit');
+    Route::patch('/categories/{category:id}', 'CategoriesController@update');
+    
+    Route::delete('categories/{category:id}/delete', 'CategoriesController@destroy');
 });
 
 Auth::routes();
