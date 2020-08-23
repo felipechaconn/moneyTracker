@@ -20,9 +20,15 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('home');
     
-    Route::get('/currencies', 'CurrencyController@index');   
+    Route::get('/currencies', 'CurrencyController@index')->name('allCurrencies');
+    
     Route::get('/currencies/create', 'CurrencyController@create');
     Route::post('/currencies', 'CurrencyController@store');
+    
+    Route::get('currencies/{currency:id}/edit', 'CurrencyController@edit');
+    Route::patch('/currencies/{currency:id}', 'CurrencyController@update');
+    
+    Route::delete('currencies/{currency:id}/delete', 'CurrencyController@destroy');
 });
 
 Auth::routes();

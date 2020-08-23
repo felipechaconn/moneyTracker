@@ -85,7 +85,7 @@ class CurrencyController extends Controller
      */
     public function edit(Currency $currency)
     {
-        //
+        return view('currency.edit', compact('currency'));
     }
 
     /**
@@ -108,7 +108,7 @@ class CurrencyController extends Controller
      */
     public function destroy(Currency $currency)
     {
-        $currencies = Currency::find($id);
+        $currencies = Currency::find($currency);
         $currencies->delete();
         return Redirect::back();
     }

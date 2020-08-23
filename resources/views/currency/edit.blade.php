@@ -2,9 +2,11 @@
     <form
         class="col-lg-6 ml-48"
         method="POST" 
-        action="/currencies"    
+        action="/currencies/{{ $currency->id }}"    
     >
     @csrf
+    @method('PATCH')
+
     <h1 class="text-white tecxt-bold text-xl text-center mb-5">Add Crurrency</h1>
     <div class="mb-6">
         <label class="block mb-2 uppercase font-bold text-xs text-white" 
@@ -17,6 +19,7 @@
             type="text" 
             name="name" 
             id="name"
+            value="{{ $currency->name }}"
             required
         >
 
@@ -36,6 +39,7 @@
             type="text" 
             name="symbol" 
             id="symbol"
+            value="{{ $currency->symbol }}"
             required
         >
 
@@ -55,6 +59,7 @@
             type="text" 
             name="description" 
             id="description"
+            value="{{ $currency->description }}"
             required
         >
 
@@ -74,6 +79,7 @@
             type="text" 
             name="rate" 
             id="rate"
+            value="{{ $currency->rate }}"
             required
         >
 
