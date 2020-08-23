@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Account;
+use App\Models\Account;
+use App\Models\Currency;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use DB;
+use Image;
 class AccountController extends Controller
 {
     public function __construct()
