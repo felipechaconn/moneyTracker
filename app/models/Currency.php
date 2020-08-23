@@ -19,7 +19,7 @@ class Currency extends Model
 
     protected function checkCurrency() {
         $userId = Auth::user()->id;
-        $currencies = DB::table($table)->where('user_id','=', $userId)->get();
+        $currencies = DB::table($this->table)->where('user_id','=', $userId)->get();
 
         return $currencies;
     }

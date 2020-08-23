@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use App\Currency;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -49,10 +50,10 @@ class CurrencyController extends Controller
         $currencies = Currency::checkCurrency();
         //Agregar la moneda a mysql
       $usuario_id = Auth::user()->id;
-      $name = Input::get('name');
-      $simbolo = Input::get('symbol');
-      $descripcion = Input::get('description');
-      $tasa = Input::get('rate');
+      $name = $request->name;
+      $simbolo = $request->symbol;
+      $descripcion = $request->description;
+      $tasa = $request->rate;
       //Creamos el array de las monedas
       $currencies = array('user_id' => $usuario_id, 
         'name' => $name,  

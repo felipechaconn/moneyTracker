@@ -1,10 +1,11 @@
 <x-app>
     <form
+        class="col-lg-6 ml-48"
         method="POST" 
         action="/currencies"    
     >
     @csrf
-
+    <h1 class="text-white tecxt-bold text-xl text-center mb-5">Add Crurrency</h1>
     <div class="mb-6">
         <label class="block mb-2 uppercase font-bold text-xs text-white" 
             for="name"
