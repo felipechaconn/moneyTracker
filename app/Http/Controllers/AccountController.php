@@ -51,7 +51,7 @@ class AccountController extends Controller
     {
         $icon = $request->file('icon');
         $filename = time() . '.' . $icon->getClientOriginalExtension();
-        Image::make($icon)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+        Image::make($icon)->resize(300, 300)->save( public_path('/uploads/icons/' . $filename ) );
         $user_id = Auth::user()->id;
         $currency_id = $request->currency_id;
         $name = $request->name;
@@ -80,7 +80,6 @@ class AccountController extends Controller
      */
     public function show(Account $account)
     {
-        //
     }
 
     /**

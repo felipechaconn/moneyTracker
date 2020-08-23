@@ -56,12 +56,13 @@
 
         <div class="select control">
             <select 
-                name="currency"
+                id="currency_id"
+                name="currency_id"
                 class="custom-select"    
             >
                 @foreach ($currencies as $currency)
                     <option 
-                        value="{{ $currency->currency_id }}"
+                        value="{{ $currency->id }}"
                     >
                         {{ $currency->name }}
                     </option>

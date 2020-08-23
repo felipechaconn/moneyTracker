@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Currency;
+
 
 class Account extends Model
 {
@@ -41,6 +41,9 @@ class Account extends Model
 
     public function getCurrency()
     {
-        return Currency::get()->where('id', $this->currency_id);
+        $currencies = Currency::get()->where('id', $this->currency_id);
+        foreach($currencies as $current) {
+            return $current->symbol;
+        }
     }
 }
