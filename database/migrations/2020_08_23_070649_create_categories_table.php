@@ -20,6 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
+            $table->string('description');
             $table->string('icon')->nullable();
             $table->integer('budget')->nullable();
             $table->timestamps();

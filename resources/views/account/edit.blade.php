@@ -6,6 +6,7 @@
         enctype="multipart/form-data"
     >
     @csrf
+    @method('PATCH')
 
     <h1 class="text-white tecxt-bold text-xl text-center mb-5">Edit account</h1>
     <div class="mb-6">
