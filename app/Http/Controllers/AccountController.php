@@ -31,15 +31,26 @@ class AccountController extends Controller
     public function create()
     {
         //
-    $icon = $request->file('icon');
-    $filename = time() . '.' . $icon->getClientOriginalExtension();
-    Image::make($icon)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
-      $usuario_id = Auth::user()->id;
-      $currency_id = $request->currency_id;
-      $name = $request->name;
-      $description = $request->description;
-      $initial_balance = $request->initial_balance;
-      $account_balance = $request->account_balance;
+    
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $icon = $request->file('icon');
+        $filename = time() . '.' . $icon->getClientOriginalExtension();
+        Image::make($icon)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+        $usuario_id = Auth::user()->id;
+        $currency_id = $request->currency_id;
+        $name = $request->name;
+        $description = $request->description;
+        $initial_balance = $request->initial_balance;
+        $account_balance = $request->account_balance;
 
       //Creamos el array de las monedas
       $account = array('user_id' => $user_id, 
@@ -52,17 +63,6 @@ class AccountController extends Controller
 
       DB::table('accounts')->insert($account);  
         return Redirect::back();
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -108,5 +108,8 @@ class AccountController extends Controller
     public function destroy(Account $account)
     {
         //
+        $account = Currency::find($account->id);
+        $account->delete();
+        return Redirect::back();
     }
 }
