@@ -23,4 +23,9 @@ class Currency extends Model
 
         return $currencies;
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

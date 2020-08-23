@@ -7,18 +7,15 @@
         <p class="text-white text-xl text-bold mb-3">My currencies</p>
 
         @forelse ($currencies as $currency)
-            <div class="card rounded-lg mr-2 mb-2" style="width: 9rem">
+            <div class="card rounded-lg mr-2 mb-2" style="width: 12rem">
                 <div class="card-body flex items-center">
-                    <div class="mr-2 flex-shrink-0">
-                        <p>{{ $currency->symbol }}</p>
-                    </div>
-
-                    <div>
+                    <div class="flex-wrap">
+                        <p class="text-white font-bold mr-2">Symbol: {{ $currency->symbol }}</p>
                         <p class="text-white font-bold mr-2">
-                            {{ $currency->description }}
+                            Description: {{ $currency->description }}
                         </p>
                         <p class="text-white font-bold mr-2">
-                            {{ $currency->rate }}
+                            Exchange rate: {{ $currency->rate }}
                         </p>
                     </div>
                 </div>

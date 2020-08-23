@@ -38,7 +38,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function allCurrencies(){
+        return Currency::get()->where('user_id', $this->id);
+    }
+
     public function currencies(){
-        return $currencies = Currency::where('user_id', $this->id);
+        return $this->hasMany(Currency::class);
     }
 }
