@@ -2,7 +2,7 @@
     <form
         class="col-lg-6 ml-48"
         method="POST" 
-        action="/accounts/{{ $acount->id }}"
+        action="/accounts/{{ $account->id }}"
         enctype="multipart/form-data"
     >
     @csrf

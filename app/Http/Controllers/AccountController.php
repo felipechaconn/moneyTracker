@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Account;
+use App\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -90,7 +90,11 @@ class AccountController extends Controller
      */
     public function edit(Account $account)
     {
-        //
+        $currencies = auth()->user()->allCurrencies();
+
+        return view('account.edit')
+            ->with(compact('account'))
+            ->with(compact('currencies'));
     }
 
     /**

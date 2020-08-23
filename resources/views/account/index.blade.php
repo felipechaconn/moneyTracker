@@ -15,14 +15,19 @@
                             <p class="text-white  mr-2 mb-4">{{ $account->name }}</p>
                             <h3 class="text-white font-bold">Account Description:</h3>
                             <p class="text-white  mr-2 mb-4">{{ $account->description }}</p>
-                            <h3 class="text-white font-bold">Current Balance:</h3>
-                            <p class="text-white  mr-2 mb-4">2000</p>
                             <p class="text-white font-bold mr-2 mb-4">
-                                Current balance: {{ $account->getCurrency() }}{{ $account->current_balance }}
+                                Current balance: {{ $account->getCurrency() }}{{ $account->initial_balance }}
                             </p>
-                        <img src="/uploads/icons/{{$account->icon}}" alt="" style="width: 100px;position: relative;left: 60rem;bottom: 140px;">
+                            <img 
+                                src="/uploads/icons/{{$account->icon}}" 
+                                alt="account_icon" 
+                                class="absolute"
+                                style="left: 60rem;bottom: 80px;"
+                                width="110"
+                                height="110"
+                            >
                             <div class="flex items-center">
-                                <a href="/accounts/{{ $account->id }}/edit" class="btn btn-success rounded-full mt-3 mr-2 mx-8">Edit</a>
+                                <a href="/accounts/{{ $account->id }}/edit" class="btn btn-success rounded-full mt-3 mr-2">Edit</a>
 
                                 <form
                                     method="POST" 
