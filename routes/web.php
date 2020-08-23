@@ -34,6 +34,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/accounts/create', 'AccountController@create');
     Route::post('/accounts', 'AccountController@store');
+
+    Route::get('accounts/{account:id}/edit', 'AccountController@edit');
+    Route::patch('/accounts/{account:id}', 'AccountController@update');
+    
+    Route::delete('accounts/{account:id}/delete', 'AccountController@destroy');
 });
 
 Auth::routes();

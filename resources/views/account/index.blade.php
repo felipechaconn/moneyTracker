@@ -22,7 +22,7 @@
                             </p>
                         <img src="/uploads/icons/{{$account->icon}}" alt="" style="width: 100px;position: relative;left: 60rem;bottom: 140px;">
                             <div class="flex items-center">
-                                <a href="/accounts/{{ $account->currency_id }}/edit" class="btn btn-success rounded-full mt-3 mr-2 mx-8">Edit</a>
+                                <a href="/accounts/{{ $account->id }}/edit" class="btn btn-success rounded-full mt-3 mr-2 mx-8">Edit</a>
 
                                 <form
                                     method="POST" 
