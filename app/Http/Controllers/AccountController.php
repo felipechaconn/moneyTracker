@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
-use App\Models\Currency;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -37,8 +36,9 @@ class AccountController extends Controller
      */
     public function create()
     {
-        //
-    
+        return view('account.create', [
+            'currencies' => auth()->user()->allCurrencies()
+        ]);
     }
 
     /**

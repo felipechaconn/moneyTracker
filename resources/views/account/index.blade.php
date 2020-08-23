@@ -13,14 +13,14 @@
                         <div class="flex-wrap">
                             <p class="text-white font-bold mr-2">Account: {{ $account->name }}</p>
                             <p class="text-white font-bold mr-2">
-                                Current balance: {{ $account->current_balance }}
+                                Current balance: {{ $account->getCurrency()->symbol }}{{ $account->current_balance }}
                             </p>
                             <div class="flex items-center">
-                                <a href="/currencies/{{ $account->currency_id }}/edit" class="btn btn-success rounded-full mt-3 mr-2 mx-8">Edit</a>
+                                <a href="/accounts/{{ $account->currency_id }}/edit" class="btn btn-success rounded-full mt-3 mr-2 mx-8">Edit</a>
 
                                 <form
                                     method="POST" 
-                                    action="/currencies/{{ $account->currency_id }}/delete"
+                                    action="/accounts/{{ $account->currency_id }}/delete"
                                 >
                                 @csrf
                                 @method('DELETE')
