@@ -2,12 +2,12 @@
     <form
         class="col-lg-6 ml-48"
         method="POST" 
-        action="/accounts"
+        action="/accounts/{{ $acount->id }}"
         enctype="multipart/form-data"
     >
     @csrf
 
-    <h1 class="text-white tecxt-bold text-xl text-center mb-5">Add Account</h1>
+    <h1 class="text-white tecxt-bold text-xl text-center mb-5">Edit account</h1>
     <div class="mb-6">
         <label class="block mb-2 uppercase font-bold text-xs text-white" 
             for="name"
@@ -19,6 +19,7 @@
             type="text" 
             name="name" 
             id="name"
+            value="{{ $account->name }}"
             required
         >
 
@@ -38,6 +39,7 @@
             type="text" 
             name="description" 
             id="description"
+            value="{{ $account->description }}"
             required
         >
 
@@ -57,11 +59,12 @@
         <div class="select control">
             <select 
                 name="currency"
-                class="custom-select"    
+                class="custom-select"
             >
                 @foreach ($currencies as $currency)
-                    <option 
-                        value="{{ $currency->currency_id }}"
+                    <option
+                        {{ $currency->id != $account->currency_id ? '' : 'selected="selected' }}
+                        value="{{ $currency->id }}"
                     >
                         {{ $currency->name }}
                     </option>
@@ -85,6 +88,7 @@
             type="text" 
             name="initial_balance" 
             id="initial_balance"
+            value="{{ $account->initial_balance }}"
             required
         >
 
@@ -99,7 +103,6 @@
         >
             Icon
         </label>
-
 
         <div class="custom-file">
             <input class="border text-white border-white p-2 w-full custom-file-input"

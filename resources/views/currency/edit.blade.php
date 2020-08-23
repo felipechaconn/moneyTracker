@@ -7,7 +7,7 @@
     @csrf
     @method('PATCH')
 
-    <h1 class="text-white tecxt-bold text-xl text-center mb-5">Add Crurrency</h1>
+    <h1 class="text-white tecxt-bold text-xl text-center mb-5">Edit Crurrency</h1>
     <div class="mb-6">
         <label class="block mb-2 uppercase font-bold text-xs text-white" 
             for="name"
