@@ -15,7 +15,7 @@ class Account extends Model
     protected $table = 'accounts';
     protected $fillable = [
         'user_id', 'currency_id', 'name',
-        'description', 'initial_balance', 'icon',
+        'description', 'initial_balance','account_balance', 'icon',
     ];
     
     protected function verCuentas()

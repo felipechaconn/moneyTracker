@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
+    public function __construct()
+    {
+       
+        $this->middleware('auth');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,6 +31,27 @@ class AccountController extends Controller
     public function create()
     {
         //
+    $icon = $request->file('icon');
+    $filename = time() . '.' . $icon->getClientOriginalExtension();
+    Image::make($icon)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+      $usuario_id = Auth::user()->id;
+      $currency_id = $request->currency_id;
+      $name = $request->name;
+      $description = $request->description;
+      $initial_balance = $request->initial_balance;
+      $account_balance = $request->account_balance;
+
+      //Creamos el array de las monedas
+      $account = array('user_id' => $user_id, 
+        'currency_id' => $currency_id,
+        'name' => $name,
+        'description' => $description,
+        'initial_balance' => $initial_balance,
+        'account_balance'=>$account_balance,
+        'icon' => $filename);
+
+      DB::table('accounts')->insert($account);  
+        return Redirect::back();
     }
 
     /**
