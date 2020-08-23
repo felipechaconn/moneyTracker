@@ -5,7 +5,7 @@
             <p class="card-title text-white text-xl text-bold mr-2 mt-4">
                 Account balance:
             </p>
-            <p class="card-title text-white text-xl text-bold">$5,472</p>
+            <p class="card-title text-white text-xl text-bold">${{ $accountsTotal }}</p>
         </div>
     </div>
 </div>

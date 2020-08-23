@@ -46,6 +46,15 @@ class User extends Authenticatable
         return Account::get()->where('user_id', $this->id);
     }
 
+    public function accountsTotal(){
+        $accounts = $this->allAccounts();
+        $total = 0;
+        foreach ($accounts as $account) {
+            $total += $account->initial_balance;
+        }
+        return $total;
+    }
+
     public function currencies(){
         return $this->hasMany(Currency::class);
     }
