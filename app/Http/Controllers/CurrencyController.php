@@ -97,7 +97,9 @@ class CurrencyController extends Controller
      */
     public function update(Request $request, Currency $currency)
     {
-        //
+        $currencies = Currency::find($currency->id)->update($request->all());
+        return redirect('/currencies');
+        
     }
 
     /**
@@ -108,7 +110,8 @@ class CurrencyController extends Controller
      */
     public function destroy(Currency $currency)
     {
-        $currencies = Currency::find($currency);
+        
+        $currencies = Currency::find($currency->id);
         $currencies->delete();
         return Redirect::back();
     }

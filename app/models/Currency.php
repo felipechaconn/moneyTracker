@@ -10,7 +10,7 @@ class Currency extends Model
     //
     const CREATED_AT = 'creation_date';
     protected $table = 'currencies';
-    protected $primaryKey = 'currency_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'user_id', 'name', 'symbol',
