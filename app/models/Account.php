@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\models\Currency;
+use App\models\Transaction;
+use Carbon\Carbon;
 
 class Account extends Model
 {
@@ -20,13 +22,13 @@ class Account extends Model
         'description', 'initial_balance','account_balance', 'icon',
     ];
     
-    protected function verCuentas()
+    protected function checkAccounts()
 
     {
         $usuario_id = Auth::user()->id;
-        $cuentas = DB::table($this->table)->where('user_id','=', $usuario_id)->get();
+        $accounts = DB::table($this->table)->where('user_id','=', $usuario_id)->get();
 
-    	return $cuentas;
+    	return $accounts;
     }
 
     public function currency()
@@ -45,5 +47,8 @@ class Account extends Model
         foreach($currencies as $current) {
             return $current->symbol;
         }
+    }
+    public function transaction() {
+        return $this->hasMany('App\Models\Transaction');
     }
 }

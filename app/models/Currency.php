@@ -4,7 +4,7 @@ namespace App\models;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Account;
 class Currency extends Model
 {
     //
@@ -27,5 +27,10 @@ class Currency extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function account()
+    {
+        return $this->hasMany('App\Models\Account');
     }
 }
