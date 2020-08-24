@@ -27,7 +27,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create', [
+            'categories' => auth()->user()->allCategories()
+        ]);
     }
 
     /**
@@ -39,6 +41,31 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $icon = $request->file('icon');
+        $filename = time() . '.' . $icon->getClientOriginalExtension();
+        Image::make($icon)->resize(300, 300)->save( public_path('/uploads/icons/' . $filename ) );
+        $user_id = Auth::user()->id;
+        $father_cat = $request->father_cat;
+        $type = $request->type;
+        $name = $request->name;
+        $description = $request->description;
+        $budget = $request->budget;
+        $account_balance = $request->account_balance;
+
+      //Creamos el array de las monedas
+      $category = array('user_id' => $user_id, 
+        'currency_id' => $currency_id,
+        'name' => $name,
+        'father_cat'=>$father_cat,
+        'type'=>$type,
+        'budget'=>$budget,
+        'description' => $description,
+        'initial_balance' => $initial_balance,
+        'account_balance'=>$account_balance,
+        'icon' => $filename);
+
+      DB::table('categories')->insert($category);  
+        return Redirect::back();
     }
 
     /**
@@ -61,6 +88,11 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
+        $currencies = auth()->user()->allCategories();
+
+        return view('category.edit')
+            ->with(compact('category'))
+            ->with(compact('currencies'));
     }
 
     /**
@@ -73,6 +105,8 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
+        $category = Category::find($category->id)->update($request->all());
+        return redirect('/cateogories');
     }
 
     /**
@@ -84,5 +118,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        $category = Category::find($category->id);
+        $category->delete();
+        return Redirect::back();
     }
 }
