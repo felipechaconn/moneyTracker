@@ -39,7 +39,6 @@
             type="text" 
             name="father_category" 
             id="father_category"
-            required
         >
 
         @error('father_category')
@@ -94,6 +93,48 @@
         >
 
         @error('description')
+            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+        @enderror
+    </div>
+
+    <div class="mb-6">
+        <label class="block mb-2 uppercase font-bold text-xs text-white" 
+            for="budget"
+        >
+            Budget
+        </label>
+
+        <input class="border border-white p-2 w-full"
+            type="text" 
+            name="budget" 
+            id="budget"
+            required
+        >
+
+        @error('budget')
+            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+        @enderror
+    </div>
+
+    <div class="mb-6">
+        <label class="block mb-2 uppercase font-bold text-xs text-white" 
+            for="icon"
+        >
+            Icon
+        </label>
+
+
+        <div class="custom-file">
+            <input class="border text-white border-white p-2 w-full custom-file-input"
+                type="file" 
+                name="icon" 
+                id="icon"
+                accept="image/*"
+            >
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+
+        @error('icon')
             <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
         @enderror
     </div>

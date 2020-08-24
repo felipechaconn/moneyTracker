@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use DB;
+use Image;
 
 class CategoryController extends Controller
 {
@@ -27,9 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create', [
-            'categories' => auth()->user()->allCategories()
-        ]);
+        return view('category.create');
     }
 
     /**
@@ -87,12 +89,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
-        $currencies = auth()->user()->allCategories();
-
-        return view('category.edit')
-            ->with(compact('category'))
-            ->with(compact('currencies'));
+        return view('category.edit', compact('category'));
     }
 
     /**
