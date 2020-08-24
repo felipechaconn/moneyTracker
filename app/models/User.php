@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace App\models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\models\Account;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -46,6 +46,11 @@ class User extends Authenticatable
         return Account::get()->where('user_id', $this->id);
     }
 
+    public function allCategories(){
+        return Category::get()->where('user_id', $this->id);
+    }
+
+
     public function accountsTotal(){
         $accounts = $this->allAccounts();
         $total = 0;
@@ -54,12 +59,16 @@ class User extends Authenticatable
         }
         return $total;
     }
-
+    
     public function currencies(){
         return $this->hasMany(Currency::class);
     }
 
     public function accounts(){
         return $this->hasMany(Account::class);
+    }
+
+    public function categories(){
+        return $this->hasMany(Category::class);
     }
 }

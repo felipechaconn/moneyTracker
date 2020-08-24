@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
  
 use Auth;
-use App\User;
+use App\models\User;
 use Socialite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -41,6 +41,6 @@ class SocialAuthController extends Controller
     {
         Auth::login($user);
  
-        return redirect()->to('/home');
+        return redirect()->to('/');
     }
 }

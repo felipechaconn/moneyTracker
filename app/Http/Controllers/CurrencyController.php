@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
-use App\Currency;
+use App\models\currency;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -69,7 +69,7 @@ class CurrencyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Currency  $currency
+     * @param  \App\models\currency  $currency
      * @return \Illuminate\Http\Response
      */
     public function show()
@@ -80,7 +80,7 @@ class CurrencyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Currency  $currency
+     * @param  \App\models\currency  $currency
      * @return \Illuminate\Http\Response
      */
     public function edit(Currency $currency)
@@ -92,7 +92,7 @@ class CurrencyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Currency  $currency
+     * @param  \App\models\currency  $currency
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Currency $currency)
@@ -105,7 +105,7 @@ class CurrencyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Currency  $currency
+     * @param  \App\models\currency  $currency
      * @return \Illuminate\Http\Response
      */
     public function destroy(Currency $currency)

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Account;
+use App\models\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -75,7 +75,7 @@ class AccountController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Account  $account
+     * @param  \App\models\Account  $account
      * @return \Illuminate\Http\Response
      */
     public function show(Account $account)
@@ -85,7 +85,7 @@ class AccountController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Account  $account
+     * @param  \App\models\Account  $account
      * @return \Illuminate\Http\Response
      */
     public function edit(Account $account)
@@ -101,7 +101,7 @@ class AccountController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Account  $account
+     * @param  \App\models\Account  $account
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Account $account)
@@ -113,7 +113,7 @@ class AccountController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Account  $account
+     * @param  \App\models\Account  $account
      * @return \Illuminate\Http\Response
      */
     public function destroy(Account $account)
