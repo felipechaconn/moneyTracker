@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\models\Account;
 use App\models\Transaction;
 use Illuminate\Http\Request;
-use App\Models\Account;
 use App\Models\Currency;
 use App\Models\Category;
 use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Prophecy\Call\Call;
+
 class TransactionController extends Controller
 {
     public function __construct()
@@ -38,8 +40,10 @@ class TransactionController extends Controller
       //Mostrar solamente los ingresos
         $incomes = Transaction::checkIncomes();
         $accounts = Account::checkAccounts();
-        return view('incomes.index', compact('accounts','incomes'));
-    } 
+        
+        return view('income.index', compact('accounts','incomes'));
+    }
+
     public function checkSpends()
     {       
       //Mostrar solamente los ingresos
@@ -53,9 +57,11 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createIncome()
     {
-        //
+        $categories = auth()->user()->allCategories();
+        $accounts = auth()->user()->allAccounts();
+        return view('income.create', compact('categories', 'accounts'));
     }
 
     /**
@@ -98,7 +104,7 @@ class TransactionController extends Controller
        $accounts = Account::checkAccounts();
        $categories = Category::showCategories();
     
-    return view('transaction.edit', compact('transaction','accounts','categories'));
+        return view('transaction.edit', compact('transaction','accounts','categories'));
     }
 
     /**

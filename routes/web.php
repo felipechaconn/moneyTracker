@@ -45,10 +45,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/categories/create', 'CategoryController@create');
     Route::post('/categories', 'CategoryController@store');
 
-    Route::get('categories/{category:id}/edit', 'CategoryController@edit');
+    Route::get('/categories/{category:id}/edit', 'CategoryController@edit');
     Route::patch('/categories/{category:id}', 'CategoryController@update');
     
-    Route::delete('categories/{category:id}/delete', 'CategoryController@destroy');
+    Route::delete('/categories/{category:id}/delete', 'CategoryController@destroy');
+
+    Route::get('/incomes', 'TransactionController@showIncomes');
+
+    Route::get('/incomes/create', 'TransactionController@createIncome');
+    Route::post('/incomes', 'TransactionController@store');
+
 });
 
 Auth::routes();

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
-use App\models\currency;
+use App\models\Currency;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -74,7 +74,7 @@ class CurrencyController extends Controller
      */
     public function show()
     {
-        return view('nombreDelView')->with($currencies,compact('currencies'));
+        //return view('nombreDelView')->with($currencies,compact('currencies'));
     }
 
     /**

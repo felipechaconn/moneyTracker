@@ -30,25 +30,25 @@
 
     <div class="mb-6">
         <label class="block mb-2 uppercase font-bold text-xs text-white" 
-            for="father_category"
+            for="father_cat"
         >
             Father category
         </label>
 
         <input class="border border-white p-2 w-full"
             type="text" 
-            name="father_category" 
-            id="father_category"
+            name="father_cat" 
+            id="father_cat"
         >
 
-        @error('father_category')
+        @error('father_cat')
             <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
         @enderror
     </div>
 
     <div class="mb-6">
         <label 
-            for="category_type" 
+            for="type" 
             class="block mb-2 uppercase font-bold text-xs text-white"
         >
             Category type
@@ -56,8 +56,8 @@
 
         <div class="select control">
             <select 
-                id="category_type"
-                name="category_type"
+                id="type"
+                name="type"
                 class="custom-select"    
             >
                 <option 
