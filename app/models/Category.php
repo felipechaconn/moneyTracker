@@ -10,6 +10,8 @@ class Category extends Model
 {
     protected $table = 'categories';
 
+    protected $guarded = [];
+
     protected function showCategories()
     {
             $user_id = Auth::user()->id;

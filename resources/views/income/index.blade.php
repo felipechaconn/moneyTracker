@@ -1,34 +1,29 @@
 <x-app>
     <div class="relative mb-3">
-        <a href="/categories/create" class="btn btn-success absolute top-0 right-0 rounded-full">Add category</a>
+        <a href="/income/create" class="btn btn-success absolute top-0 right-0 rounded-full">Add income</a>
     </div>
 
     <div>
-        <p class="text-white text-xl text-bold mb-3">My categories</p>
+        <p class="text-white text-xl text-bold mb-3">My incomes</p>
         
         <div class="flex flex-wrap">
-            @forelse ($categories as $category)
+            @forelse ($incomes as $income)
                 <div class="card rounded-lg mr-2 mb-2" style="width: 15rem">
                     <div class="card-body flex items-center">
                         <div class="flex-wrap">
+                            <p class="text-white font-bold mr-2">Date: {{ $income->date }}</p>
                             <p class="text-white font-bold mr-2">
-                                Category: {{ $category->name }}
+                                Description: {{ $income->description }}
                             </p>
                             <p class="text-white font-bold mr-2">
-                                Type: {{ $category->type }}
-                            </p>
-                            <p class="text-white font-bold mr-2">
-                                Description: {{ $category->description }}
-                            </p>
-                            <p class="text-white font-bold mr-2">
-                                Budget: {{ $category->budget }}
+                                Amount: {{ $income->amount }}
                             </p>
                             <div class="flex items-center">
-                                <a href="/categories/{{ $category->id }}/edit" class="btn btn-success rounded-full mt-3 mr-2 mx-8">Edit</a>
+                                <a href="/currencies/edit" class="btn btn-success rounded-full mt-3 mr-2 mx-8">Edit</a>
 
                                 <form
                                     method="POST" 
-                                    action="/categories/{{ $category->id }}/delete"
+                                    action="/currencies/delete"
                                 >
                                 @csrf
                                 @method('DELETE')
@@ -40,7 +35,7 @@
                     </div>
                 </div>
             @empty
-                <p class="text-white text-xl text-bold">No categories yet</p>
+                <p class="text-white text-xl text-bold">No incomes yet</p>
             @endforelse
         </div>
     </div>

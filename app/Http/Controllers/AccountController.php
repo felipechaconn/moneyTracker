@@ -37,7 +37,7 @@ class AccountController extends Controller
     public function create()
     {
         return view('account.create', [
-            'currencies' => auth()->user()->allAccounts()
+            'currencies' => auth()->user()->allCurrencies()
         ]);
     }
 
@@ -69,7 +69,8 @@ class AccountController extends Controller
         'icon' => $filename);
 
       DB::table('accounts')->insert($account);  
-        return Redirect::back();
+        //return Redirect::back();
+        return redirect('/accounts');
     }
 
     /**

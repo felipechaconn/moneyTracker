@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
-use App\models\currency;
+use App\models\Currency;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -63,7 +63,8 @@ class CurrencyController extends Controller
        
       $id = DB::table('currencies')->insertGetId($currencies);
         
-        return Redirect::back();
+        //return Redirect::back();
+        return redirect()->route('allCurrencies');
     }
 
     /**
@@ -74,7 +75,7 @@ class CurrencyController extends Controller
      */
     public function show()
     {
-        return view('nombreDelView')->with($currencies,compact('currencies'));
+        //return view('nombreDelView')->with($currencies,compact('currencies'));
     }
 
     /**
@@ -98,7 +99,7 @@ class CurrencyController extends Controller
     public function update(Request $request, Currency $currency)
     {
         $currencies = Currency::find($currency->id)->update($request->all());
-        return redirect('/currencies');
+        return redirect()->route('allCurrencies');
         
     }
 

@@ -52,18 +52,14 @@ class CategoryController extends Controller
         $name = $request->name;
         $description = $request->description;
         $budget = $request->budget;
-        $account_balance = $request->account_balance;
 
       //Creamos el array de las monedas
       $category = array('user_id' => $user_id, 
-        'currency_id' => $currency_id,
         'name' => $name,
         'father_cat'=>$father_cat,
         'type'=>$type,
         'budget'=>$budget,
         'description' => $description,
-        'initial_balance' => $initial_balance,
-        'account_balance'=>$account_balance,
         'icon' => $filename);
 
       DB::table('categories')->insert($category);  
@@ -101,9 +97,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
         $category = Category::find($category->id)->update($request->all());
-        return redirect('/cateogories');
+        return redirect('/categories');
     }
 
     /**
