@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/incomes', 'TransactionController@showIncomes');
 
     Route::get('/incomes/create', 'TransactionController@createIncome');
-    Route::post('/incomes', 'TransactionController@store');
+    Route::post('/incomes', 'TransactionController@storeIncome');
 
 });
 

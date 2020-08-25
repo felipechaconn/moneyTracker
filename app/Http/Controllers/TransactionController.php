@@ -70,9 +70,27 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeIncome(Request $request)
     {
-        //
+        $attributes = request()->validate([
+                'date' => 'required',
+                'detail' => 'required',
+                'amount' => 'required',
+                'category_id' => 'required',
+                'account_accredit_id' => 'required'
+            ]);
+
+        Transaction::create([
+            'user_id' => auth()->id(),
+            'type' => 'income',
+            'date' => $attributes['date'],
+            'detail' => $attributes['detail'],
+            'amount' => $attributes['amount'],
+            'category_id' => $attributes['category_id'],
+            'account_accredit_id' => $attributes['account_accredit_id'],
+        ]);
+
+        return redirect()->route('home');
     }
 
     /**

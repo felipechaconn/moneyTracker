@@ -63,7 +63,8 @@ class CurrencyController extends Controller
        
       $id = DB::table('currencies')->insertGetId($currencies);
         
-        return Redirect::back();
+        //return Redirect::back();
+        return redirect()->route('allCurrencies');
     }
 
     /**
@@ -98,7 +99,7 @@ class CurrencyController extends Controller
     public function update(Request $request, Currency $currency)
     {
         $currencies = Currency::find($currency->id)->update($request->all());
-        return redirect('/currencies');
+        return redirect()->route('allCurrencies');
         
     }
 

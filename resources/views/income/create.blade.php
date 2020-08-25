@@ -29,19 +29,19 @@
 
     <div class="mb-6">
         <label class="block mb-2 uppercase font-bold text-xs text-white" 
-            for="description"
+            for="detail"
         >
             Description
         </label>
 
         <input class="border border-white p-2 w-full"
             type="text" 
-            name="description" 
-            id="description"
+            name="detail" 
+            id="detail"
             required
         >
 
-        @error('description')
+        @error('detail')
             <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
         @enderror
     </div>
@@ -67,7 +67,7 @@
 
     <div class="mb-6">
         <label 
-            for="category" 
+            for="category_id" 
             class="block mb-2 uppercase font-bold text-xs text-white"
         >
             Category
@@ -75,8 +75,8 @@
 
         <div class="select control">
             <select 
-                id="category"
-                name="category"
+                id="category_id"
+                name="category_id"
                 class="custom-select"    
             >
                 @forelse ($categories as $category)
@@ -90,7 +90,7 @@
                 @endforelse
             </select>
 
-            @error('currencies')
+            @error('category_id')
                 <p class="help is-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -98,7 +98,7 @@
 
     <div class="mb-6">
         <label 
-            for="account" 
+            for="account_accredit_id" 
             class="block mb-2 uppercase font-bold text-xs text-white"
         >
             Account
@@ -106,8 +106,8 @@
 
         <div class="select control">
             <select 
-                id="account"
-                name="account"
+                id="account_accredit_id"
+                name="account_accredit_id"
                 class="custom-select"    
             >
                 @forelse ($accounts as $account)
@@ -121,7 +121,7 @@
                 @endforelse
             </select>
 
-            @error('currencies')
+            @error('account_accredit_id')
                 <p class="help is-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -134,7 +134,7 @@
             Submit
         </button>
 
-        <a href="/accounts" class="hover:underline text-white">Cancel</a>
+        <a href="/incomes" class="hover:underline text-white">Cancel</a>
     </div>
 
     </form>

@@ -50,6 +50,16 @@ class User extends Authenticatable
         return Category::get()->where('user_id', $this->id);
     }
 
+    public function allIncomes(){
+        $transactions = Transaction::get()->where('user_id', $this->id);
+        $totalIncomes = $this->accountsTotal();
+        foreach ($transactions as $income) {
+            if ($income->type === 'income') {
+                $totalIncomes += $income->amount;
+            }
+        }
+        return $totalIncomes;
+    }
 
     public function accountsTotal(){
         $accounts = $this->allAccounts();

@@ -69,7 +69,8 @@ class AccountController extends Controller
         'icon' => $filename);
 
       DB::table('accounts')->insert($account);  
-        return Redirect::back();
+        //return Redirect::back();
+        return redirect('/accounts');
     }
 
     /**

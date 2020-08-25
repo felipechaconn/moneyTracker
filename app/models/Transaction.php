@@ -15,10 +15,11 @@ class Transaction extends Model
     //
     protected $table = 'transaction';
     public $timestamps = false;
-    protected $fillable = [
+    /*protected $fillable = [
         'user_id', 'account_accredit','account_debit', 'category_id','date',
         'type', 'detail', 'amount',
-    ];
+    ];*/
+    protected $guarded = [];
 
     protected function checkTransfers()
     {
