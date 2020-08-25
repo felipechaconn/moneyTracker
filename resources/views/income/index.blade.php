@@ -11,12 +11,12 @@
                 <div class="card rounded-lg mr-2 mb-2" style="width: 15rem">
                     <div class="card-body flex items-center">
                         <div class="flex-wrap">
-                            <p class="text-white font-bold mr-2">Category:</p>
+                            <p class="text-white font-bold mr-2">Date: {{ $income->date }}</p>
                             <p class="text-white font-bold mr-2">
-                                Description: 
+                                Description: {{ $income->description }}
                             </p>
                             <p class="text-white font-bold mr-2">
-                                Exchange rate: 
+                                Amount: {{ $income->amount }}
                             </p>
                             <div class="flex items-center">
                                 <a href="/currencies/edit" class="btn btn-success rounded-full mt-3 mr-2 mx-8">Edit</a>

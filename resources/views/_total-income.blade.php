@@ -6,6 +6,9 @@
                 Total income (last month):
             </p>
             <p class="card-title text-white text-xl text-bold">$1000</p>
+            <div class="flex items-center mt-3">
+                <a href="" class="btn btn-success rounded-full mt-4 mr-2">All incomes</a>
+            </div>
         </div>
     </div>
 </div>
